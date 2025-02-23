@@ -14,6 +14,6 @@ namespace DeveloperTeamInsights.Data
         {
         }
 
-        public DbSet<DeveloperTeamInsights.Models.Developer> Developer { get; set; } = default!;
+        public DbSet<DeveloperTeamInsights.Models.Developer> Developers { get; set; } = default!;
     }
 }

@@ -22,7 +22,7 @@ namespace DeveloperTeamInsights.Controllers
         // GET: DeveloperInsights
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Developer.ToListAsync());
+            return View(await _context.Developers.ToListAsync());
         }
 
         // GET: DeveloperInsights/Details/5
@@ -33,7 +33,7 @@ namespace DeveloperTeamInsights.Controllers
                 return NotFound();
             }
 
-            var developer = await _context.Developer
+            var developer = await _context.Developers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (developer == null)
             {
@@ -73,7 +73,7 @@ namespace DeveloperTeamInsights.Controllers
                 return NotFound();
             }
 
-            var developer = await _context.Developer.FindAsync(id);
+            var developer = await _context.Developers.FindAsync(id);
             if (developer == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace DeveloperTeamInsights.Controllers
                 return NotFound();
             }
 
-            var developer = await _context.Developer
+            var developer = await _context.Developers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (developer == null)
             {
@@ -139,10 +139,10 @@ namespace DeveloperTeamInsights.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var developer = await _context.Developer.FindAsync(id);
+            var developer = await _context.Developers.FindAsync(id);
             if (developer != null)
             {
-                _context.Developer.Remove(developer);
+                _context.Developers.Remove(developer);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace DeveloperTeamInsights.Controllers
 
         private bool DeveloperExists(int id)
         {
-            return _context.Developer.Any(e => e.Id == id);
+            return _context.Developers.Any(e => e.Id == id);
         }
     }
 }
